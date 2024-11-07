@@ -1,22 +1,127 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geometrik Şekiller</title>
-    <link rel="stylesheet" href="styles/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geometri Öğrenme Uygulaması</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Geometrik Şekiller</h1>
-        <p>Bir şekil seçerek özelliklerini keşfet!</p>
-    </header>
-    <main>
-        <div class="shape-container">
-            <a href="shapes/square.html" class="shape-link">Kare</a>
-            <a href="shapes/rectangle.html" class="shape-link">Dikdörtgen</a>
-            <a href="shapes/triangle.html" class="shape-link">Üçgen</a>
-        </div>
-    </main>
+
+  <header>
+    <h1>Geometri Öğrenme Uygulaması</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Anasayfa</a></li>
+        <li><a href="#about" id="about-link">Hakkında</a></li>
+        <li><a href="#profile">Profil</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Geometrik Şekillerle Öğren!</h2>
+    <p class="motivational-quote">"Geometriyi öğrenmek, mantıklı düşünmeyi öğrenmektir!"</p>
+    <div class="shapes">
+      <div class="shape" id="square">
+        <img src="square-icon.png" alt="Kare" class="shape-icon">
+        <p>Kare</p>
+      </div>
+      <div class="shape" id="triangle">
+        <img src="triangle-icon.png" alt="Üçgen" class="shape-icon">
+        <p>Üçgen</p>
+      </div>
+      <div class="shape" id="rectangle">
+        <img src="rectangle-icon.png" alt="Dikdörtgen" class="shape-icon">
+        <p>Dikdörtgen</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hakkında Kısmı (Başlangıçta gizli) -->
+  <section id="about" class="hidden">
+    <h2>Hakkında</h2>
+    <p><strong>RŞ tarafından TÜBİTAK için yapılmış olan bu uygulama, öğrencilerin geometriyi daha kolay öğrenmesi amacıyla geliştirilmiştir.</strong></p>
+  </section>
+
+  <!-- Profil Sayfası -->
+  <section id="profile">
+    <h2>Öğrenci Profili</h2>
+    <p><strong>Ad:</strong> <span id="student-name">Ahmet</span></p>
+    <p><strong>Toplam Puan:</strong> <span id="total-score">0</span></p>
+    <p><strong>Geometrik Şekiller:</strong></p>
+    <ul>
+      <li>Kare: <span id="square-score">0</span> puan</li>
+      <li>Üçgen: <span id="triangle-score">0</span> puan</li>
+      <li>Dikdörtgen: <span id="rectangle-score">0</span> puan</li>
+    </ul>
+  </section>
+
+  <!-- Kare Sayfası -->
+  <section id="square-page" class="shape-page">
+    <button id="backSquare" class="back-button">Geri</button>
+    <h2>Kare</h2>
+    <p>Kare, tüm kenarları eşit uzunluktadır ve iç açıları her zaman 90°'dir.</p>
+    <p><strong>Özellikler:</strong> 4 eşit kenar, 4 dik açı.</p>
+    <p><strong>Kare Çeşitleri:</strong> Kare, genellikle düzgün dörtgen olarak bilinir.</p>
+    <h3>Açıları:</h3>
+    <p>Bir karenin tüm açıları 90°'dir.</p>
+    <h3>Soru:</h3>
+    <p><strong>Soru 1:</strong> Bir kenar uzunluğu 6 cm olan bir karenin çevresi nedir?</p>
+    <form id="squareQuiz">
+      <input type="radio" name="squareQuestion" value="24"> 24 cm<br>
+      <input type="radio" name="squareQuestion" value="12"> 12 cm<br>
+      <input type="radio" name="squareQuestion" value="36"> 36 cm<br>
+      <button type="submit">Cevapla</button>
+    </form>
+    <div id="squareResult"></div>
+  </section>
+
+  <!-- Üçgen Sayfası -->
+  <section id="triangle-page" class="shape-page">
+    <button id="backTriangle" class="back-button">Geri</button>
+    <h2>Üçgen</h2>
+    <p>Üçgen, üç kenarı olan bir çokgendir. İç açıları toplamı her zaman 180°'dir.</p>
+    <p><strong>Özellikler:</strong> 3 kenar, 3 iç açı toplamı 180°.</p>
+    <p><strong>Üçgen Çeşitleri:</strong> Eşkenar Üçgen, İkizkenar Üçgen, Çeşitkenar Üçgen</p>
+    <h3>Açıları:</h3>
+    <p>Üçgenin iç açıları her zaman toplamda 180°'dir.</p>
+    <h3>Soru:</h3>
+    <p><strong>Soru 1:</strong> Bir üçgenin kenarları 5 cm, 12 cm ve 13 cm. Bu üçgen hangi türdür?</p>
+    <form id="triangleQuiz">
+      <input type="radio" name="triangleQuestion" value="dik üçgen"> Dik Üçgen<br>
+      <input type="radio" name="triangleQuestion" value="eşkenar üçgen"> Eşkenar Üçgen<br>
+      <input type="radio" name="triangleQuestion" value="eşitsiz üçgen"> Eşitsiz Üçgen<br>
+      <button type="submit">Cevapla</button>
+    </form>
+    <div id="triangleResult"></div>
+  </section>
+
+  <!-- Dikdörtgen Sayfası -->
+  <section id="rectangle-page" class="shape-page">
+    <button id="backRectangle" class="back-button">Geri</button>
+    <h2>Dikdörtgen</h2>
+    <p>Dikdörtgen, karşılıklı kenarları eşit uzunluktadır ve iç açıları her zaman 90°'dir.</p>
+    <p><strong>Özellikler:</strong> 2 uzun kenar, 2 kısa kenar, 4 dik açı.</p>
+    <h3>Dikdörtgen Çeşitleri:</h3>
+    <p>Genel olarak dikdörtgenin iki temel çeşidi vardır: Geniş Dikdörtgen ve Uzun Dikdörtgen.</p>
+    <h3>Açıları:</h3>
+    <p>Dikdörtgenin tüm açıları 90°'dir.</p>
+    <h3>Soru:</h3>
+    <p><strong>Soru 1:</strong> Uzun kenarı 8 cm, kısa kenarı 4 cm olan bir dikdörtgenin çevresi nedir?</p>
+    <form id="rectangleQuiz">
+      <input type="radio" name="rectangleQuestion" value="24"> 24 cm<br>
+      <input type="radio" name="rectangleQuestion" value="16"> 16 cm<br>
+      <input type="radio" name="rectangleQuestion" value="32"> 32 cm<br>
+      <button type="submit">Cevapla</button>
+    </form>
+    <div id="rectangleResult"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Geometri Öğrenme Uygulaması. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
